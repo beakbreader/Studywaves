@@ -24,19 +24,19 @@
 
     <section class="flashcards">
         <div class="flashcard">
-            <p>What is sin(0°)?</p>
+            <h3>What is sin(0°)?</h3>
             <input type="number" step="any">
             <button onclick="checkAnswer(this, '0')">Answer</button>
             <p class="answer"></p>
         </div>
         <div class="flashcard">
-            <p>What is cos(0°)?</p>
+            <h3>What is cos(0°)?</h3>
             <input type="number" step="any">
             <button onclick="checkAnswer(this, '1')">Answer</button>
             <p class="answer"></p>
         </div>
         <div class="flashcard">
-            <p>Which angle has sin equal to 1?</p>
+            <h3>Which angle has sin equal to 1?</h3>
             <select>
                 <option value="">Select an option</option>
                 <option>0°</option>
@@ -47,7 +47,7 @@
             <p class="answer"></p>
         </div>
         <div class="flashcard">
-            <p>Which angle has cos equal to 0?</p>
+            <h3>Which angle has cos equal to 0?</h3>
             <select>
                 <option value="">Select an option</option>
                 <option>90°</option>
@@ -58,19 +58,19 @@
             <p class="answer"></p>
         </div>
         <div class="flashcard">
-            <p>What is sin(180°)?</p>
+            <h3>What is sin(180°)?</h3>
             <input type="number" step="any">
             <button onclick="checkAnswer(this, '0')">Answer</button>
             <p class="answer"></p>
         </div>
         <div class="flashcard">
-            <p>What is cos(180°)?</p>
+            <h3>What is cos(180°)?</h3>
             <input type="number" step="any">
             <button onclick="checkAnswer(this, '-1')">Answer</button>
             <p class="answer"></p>
         </div>
         <div class="flashcard">
-            <p>In which quadrants is sine positive?</p>
+            <h3>In which quadrants is sine positive?</h3>
             <select>
                 <option value="">Select an option</option>
                 <option>I &amp; II</option>
@@ -81,19 +81,19 @@
             <p class="answer"></p>
         </div>
         <div class="flashcard">
-            <p>The period of the sine function is how many degrees?</p>
+            <h3>The period of the sine function is how many degrees?</h3>
             <input type="number" step="any">
             <button onclick="checkAnswer(this, '360')">Answer</button>
             <p class="answer"></p>
         </div>
         <div class="flashcard">
-            <p>What is the amplitude of y = 3 sin(x)?</p>
+            <h3>What is the amplitude of y = 3 sin(x)?</h3>
             <input type="number" step="any">
             <button onclick="checkAnswer(this, '3')">Answer</button>
             <p class="answer"></p>
         </div>
         <div class="flashcard">
-            <p>Which identity is true?</p>
+            <h3>Which identity is true?</h3>
             <select>
                 <option value="">Select an option</option>
                 <option>sin(x) + cos(x) = 1</option>
@@ -120,6 +120,7 @@
             }
 
             const result = card.querySelector('.answer');
+            card.classList.remove('correct', 'wrong');
             if (value === '') {
                 result.textContent = 'Please provide an answer.';
             } else {
@@ -132,8 +133,10 @@
 
                 if (correctFlag) {
                     result.textContent = 'Correct! The answer is ' + correct + '.';
+                    card.classList.add('correct');
                 } else {
                     result.textContent = 'False. The correct answer is ' + correct + '.';
+                    card.classList.add('wrong');
                 }
             }
             result.style.display = 'block';
