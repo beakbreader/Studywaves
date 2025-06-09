@@ -17,5 +17,46 @@
         <a class="btn" href="secant_cosecant.html">Secant &amp; Cosecant</a>
         <a class="btn" href="about.html">About Trigonometry</a>
     </main>
+
+    <section class="flashcards">
+        <div class="flashcard">
+            <p>True or False: The cosine of 0° is 1.</p>
+            <button onclick="toggleAnswer(this)">Show Answer</button>
+            <p class="answer">True</p>
+        </div>
+        <div class="flashcard">
+            <p>Which value equals sin(90°)?</p>
+            <ol type="A">
+                <li>-1</li>
+                <li>0</li>
+                <li>1</li>
+            </ol>
+            <button onclick="toggleAnswer(this)">Show Answer</button>
+            <p class="answer">C. 1</p>
+        </div>
+        <div class="flashcard">
+            <p>What is the reciprocal of sine called?</p>
+            <ol type="A">
+                <li>Secant</li>
+                <li>Cosecant</li>
+                <li>Tangent</li>
+            </ol>
+            <button onclick="toggleAnswer(this)">Show Answer</button>
+            <p class="answer">B. Cosecant</p>
+        </div>
+    </section>
+
+    <script>
+        function toggleAnswer(btn) {
+            const ans = btn.nextElementSibling;
+            if (ans.style.display === 'block') {
+                ans.style.display = 'none';
+                btn.textContent = 'Show Answer';
+            } else {
+                ans.style.display = 'block';
+                btn.textContent = 'Hide Answer';
+            }
+        }
+    </script>
 </body>
 </html>
