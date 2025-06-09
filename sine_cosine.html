@@ -21,6 +21,123 @@
             <p>The cosine function relates a real number to the x-coordinate of the point on the unit circle.</p>
         </section>
     </main>
+
+    <section class="flashcards">
+        <div class="flashcard">
+            <p>What is sin(0°)?</p>
+            <input type="number" step="any">
+            <button onclick="checkAnswer(this, '0')">Answer</button>
+            <p class="answer"></p>
+        </div>
+        <div class="flashcard">
+            <p>What is cos(0°)?</p>
+            <input type="number" step="any">
+            <button onclick="checkAnswer(this, '1')">Answer</button>
+            <p class="answer"></p>
+        </div>
+        <div class="flashcard">
+            <p>Which angle has sin equal to 1?</p>
+            <select>
+                <option value="">Select an option</option>
+                <option>0°</option>
+                <option>90°</option>
+                <option>180°</option>
+            </select>
+            <button onclick="checkAnswer(this, '90°')">Answer</button>
+            <p class="answer"></p>
+        </div>
+        <div class="flashcard">
+            <p>Which angle has cos equal to 0?</p>
+            <select>
+                <option value="">Select an option</option>
+                <option>90°</option>
+                <option>45°</option>
+                <option>0°</option>
+            </select>
+            <button onclick="checkAnswer(this, '90°')">Answer</button>
+            <p class="answer"></p>
+        </div>
+        <div class="flashcard">
+            <p>What is sin(180°)?</p>
+            <input type="number" step="any">
+            <button onclick="checkAnswer(this, '0')">Answer</button>
+            <p class="answer"></p>
+        </div>
+        <div class="flashcard">
+            <p>What is cos(180°)?</p>
+            <input type="number" step="any">
+            <button onclick="checkAnswer(this, '-1')">Answer</button>
+            <p class="answer"></p>
+        </div>
+        <div class="flashcard">
+            <p>In which quadrants is sine positive?</p>
+            <select>
+                <option value="">Select an option</option>
+                <option>I &amp; II</option>
+                <option>II &amp; III</option>
+                <option>III &amp; IV</option>
+            </select>
+            <button onclick="checkAnswer(this, 'I &amp; II')">Answer</button>
+            <p class="answer"></p>
+        </div>
+        <div class="flashcard">
+            <p>The period of the sine function is how many degrees?</p>
+            <input type="number" step="any">
+            <button onclick="checkAnswer(this, '360')">Answer</button>
+            <p class="answer"></p>
+        </div>
+        <div class="flashcard">
+            <p>What is the amplitude of y = 3 sin(x)?</p>
+            <input type="number" step="any">
+            <button onclick="checkAnswer(this, '3')">Answer</button>
+            <p class="answer"></p>
+        </div>
+        <div class="flashcard">
+            <p>Which identity is true?</p>
+            <select>
+                <option value="">Select an option</option>
+                <option>sin(x) + cos(x) = 1</option>
+                <option>cos(x) - sin(x) = 1</option>
+                <option>sin^2(x) + cos^2(x) = 1</option>
+            </select>
+            <button onclick="checkAnswer(this, 'sin^2(x) + cos^2(x) = 1')">Answer</button>
+            <p class="answer"></p>
+        </div>
+    </section>
+
     <a class="btn" href="index.html">Back Home</a>
+
+    <script>
+        function checkAnswer(btn, correct) {
+            const card = btn.parentElement;
+            const input = card.querySelector('input');
+            const select = card.querySelector('select');
+            let value = '';
+            if (input) {
+                value = input.value.trim();
+            } else if (select) {
+                value = select.value;
+            }
+
+            const result = card.querySelector('.answer');
+            if (value === '') {
+                result.textContent = 'Please provide an answer.';
+            } else {
+                let correctFlag;
+                if (/^-?\d+(\.\d+)?$/.test(correct)) {
+                    correctFlag = parseFloat(value) === parseFloat(correct);
+                } else {
+                    correctFlag = value.toLowerCase() === correct.toLowerCase();
+                }
+
+                if (correctFlag) {
+                    result.textContent = 'Correct! The answer is ' + correct + '.';
+                } else {
+                    result.textContent = 'False. The correct answer is ' + correct + '.';
+                }
+            }
+            result.style.display = 'block';
+        }
+    </script>
 </body>
 </html>
