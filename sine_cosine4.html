@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sine &amp; Cosine</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <header class="hero">
+        <h1>Sine &amp; Cosine</h1>
+        <p>Learn about the fundamental wave functions</p>
+    </header>
+    <main class="content">
+        <section>
+            <h2>Sine</h2>
+            <p>The sine function relates a real number to the y-coordinate of the point on the unit circle.</p>
+        </section>
+        <section>
+            <h2>Cosine</h2>
+            <p>The cosine function relates a real number to the x-coordinate of the point on the unit circle.</p>
+        </section>
+    </main>
+
+    <section class="flashcards">
+        <div class="flashcard">
+            <p>Which angle has cos equal to 0?</p>
+            <select>
+                <option value="">Select an option</option>
+                <option>90°</option>
+                <option>45°</option>
+                <option>0°</option>
+            </select>
+            <button onclick="checkAnswer(this, '90°')">Answer</button>
+            <p class="answer"></p>
+        </div>
+    </section>
+
+    <nav class="buttons">
+        <a class="btn" href="sine_cosine3.html">Previous</a>
+        <a class="btn" href="sine_cosine5.html">Next</a>
+        <a class="btn" href="index.html">Back Home</a>
+    </nav>
+
+    <script>
+        function checkAnswer(btn, correct) {
+            const card = btn.parentElement;
+            const input = card.querySelector('input');
+            const select = card.querySelector('select');
+            let value = '';
+            if (input) {
+                value = input.value.trim();
+            } else if (select) {
+                value = select.value;
+            }
+
+            const result = card.querySelector('.answer');
+            if (value === '') {
+                result.textContent = 'Please provide an answer.';
+                result.style.color = '';
+            } else {
+                let correctFlag;
+                if (/^-?\d+(\.\d+)?$/.test(correct)) {
+                    correctFlag = parseFloat(value) === parseFloat(correct);
+                } else {
+                    correctFlag = value.toLowerCase() === correct.toLowerCase();
+                }
+
+                if (correctFlag) {
+                    result.textContent = 'Correct! The answer is ' + correct + '.';
+                    result.style.color = 'green';
+                } else {
+                    result.textContent = 'False. The correct answer is ' + correct + '.';
+                    result.style.color = 'red';
+                }
+            }
+            result.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
